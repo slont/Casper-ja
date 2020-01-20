@@ -100,6 +100,10 @@ body {
         border-top-right-radius: 3px;
     }
 
+    .post-feed .post-card {
+        margin: 0 1rem 3rem;
+    }
+
     .home-template .site-nav {
         position: relative;
     }
@@ -598,7 +602,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -20px;
     padding: 50px 0 0;
     background: #fff;
 }
@@ -610,17 +613,17 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     flex-direction: column;
     overflow: hidden;
     margin: 0 0 40px;
-    padding: 0 20px 40px;
     min-height: 220px;
+    border-radius: 20px;
     border-bottom: 1px solid color(var(--lightgrey) l(+12%));
     background-size: cover;
+    background: #efefef;
 }
 
 .post-card-image-link {
     position: relative;
     display: block;
     overflow: hidden;
-    border-radius: 3px;
 }
 
 .post-card-image {
@@ -639,10 +642,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .post-card-content-link:hover {
     text-decoration: none;
-}
-
-.post-card-header {
-    margin: 15px 0 0;
 }
 
 .post-feed .no-image .post-card-content-link {
@@ -676,6 +675,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: inset 3px 2px 12px 1px rgba(0, 5, 16, .3), inset -10px -10px 12px #FFF;
 }
 
 .post-card-excerpt {
@@ -686,12 +687,53 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .post-card-excerpt p {
     margin-bottom: 1em;
+    line-height: 1.25;
+    letter-spacing: .25px;
+    font-family: var(--font);
 }
 
 .post-card-meta {
     display: flex;
     align-items: flex-start;
     padding: 0;
+    margin-top: auto;
+}
+
+.post-card-meta .profile-image-wrapper,
+.post-card-meta .avatar-wrapper {
+    position: relative;
+}
+
+.post-card-byline-content {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0 0 6px;
+    color: color(var(--midgrey) l(+10%));
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.post-card-byline-content span {
+    margin: 0;
+}
+
+.post-card-byline-content a {
+    color: var(--darkgrey);
+    font-weight: 600;
+}
+
+.post-card-byline-date {
+    font-size: 1.2rem;
+}
+
+.post-card-byline-date .bull {
+    display: inline-block;
+    margin: 0 4px;
+    opacity: 0.6;
 }
 
 .author-profile-image,
@@ -703,11 +745,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     border-radius: 100%;
 
     object-fit: cover;
-}
-
-.post-card-meta .profile-image-wrapper,
-.post-card-meta .avatar-wrapper {
-    position: relative;
 }
 
 .author-list {
@@ -765,38 +802,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     }
 }
 
-.post-card-byline-content {
-    flex: 1 1 50%;
-    display: flex;
-    flex-direction: column;
-    margin: 2px 0 0 6px;
-    color: color(var(--midgrey) l(+10%));
-    font-size: 1.2rem;
-    line-height: 1.4em;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-    text-transform: uppercase;
-}
-
-.post-card-byline-content span {
-    margin: 0;
-}
-
-.post-card-byline-content a {
-    color: color(var(--darkgrey) l(+20%));
-    font-weight: 600;
-}
-
-.post-card-byline-date {
-    font-size: 1.2rem;
-}
-
-.post-card-byline-date .bull {
-    display: inline-block;
-    margin: 0 4px;
-    opacity: 0.6;
-}
-
 .single-author-byline {
     display: flex;
     flex-direction: column;
@@ -832,7 +837,6 @@ make sure this only happens on large viewports / desktop-ish devices.
     .post-card-large {
         flex: 1 1 100%;
         flex-direction: row;
-        padding-bottom: 40px;
         min-height: 280px;
         border-top: 0;
     }
@@ -849,7 +853,7 @@ make sure this only happens on large viewports / desktop-ish devices.
         position: relative;
         flex: 1 1 auto;
         margin-bottom: 0;
-        min-height: 380px;
+        min-height: 320px;
     }
 
     .post-card-large .post-card-image {
@@ -868,12 +872,9 @@ make sure this only happens on large viewports / desktop-ish devices.
         font-size: 3.2rem;
     }
 
-    .post-card-large .post-card-content-link {
-        padding: 0 0 0 40px;
-    }
-
+    .post-card-large .post-card-content-link,
     .post-card-large .post-card-meta {
-        padding: 0 0 0 40px;
+        padding: 0 0 0 1rem;
     }
 
     .post-card-large .post-card-excerpt p {
@@ -919,7 +920,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 .page-template .site-main {
     margin-top: 64px;
     padding-bottom: 4vw;
-    background: #fff;
+    background: var(--darkmode);
 }
 
 .post-full-header {
@@ -991,7 +992,8 @@ make sure this only happens on large viewports / desktop-ish devices.
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    margin: 25px 0 50px;
+    max-width: 820px;
+    margin: 0 auto 50px;
     background: color(var(--lightgrey) l(+10%));
     border-radius: 3px;
 }
@@ -1185,6 +1187,12 @@ Usage (In Ghost editor):
     border-radius: 3px;
 }
 
+.post-full-content p {
+    line-height: 1.75;
+    letter-spacing: .5px;
+    font-family: var(--font);
+}
+
 .post-full-content p code {
     word-break: break-all;
 }
@@ -1250,7 +1258,7 @@ Usage (In Ghost editor):
 .post-full-content h5,
 .post-full-content h6 {
     color: color(var(--darkgrey) l(-5%));
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font);
 }
 
 .post-full-content h1 {
@@ -1260,7 +1268,7 @@ Usage (In Ghost editor):
     font-weight: 600;
 }
 .post-full-content p + h1 {
-    margin-top: 0.8em;
+    margin-top: 2em;
 }
 @media (max-width: 800px) {
     .post-full-content h1 {
@@ -1274,14 +1282,14 @@ Usage (In Ghost editor):
     font-size: 2.9rem;
     line-height: 1.25em;
     font-weight: 600;
+    text-shadow: 5px 3px 2px rgba(255,255,255, .3)
 }
 .post-full-content p + h2 {
-    margin-top: 0.8em;
+    margin-top: 1.5em;
 }
 @media (max-width: 800px) {
     .post-full-content h2 {
         margin-bottom: 0.3em;
-        font-size: 2.1rem;
         font-size: 2.8rem;
         line-height: 1.25em;
     }
@@ -1435,7 +1443,7 @@ Usage (In Ghost editor):
     width: auto;
     border-spacing: 0;
     border-collapse: collapse;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font);
     font-size: 1.6rem;
     white-space: normal;
     vertical-align: top;
@@ -1485,7 +1493,6 @@ Usage (In Ghost editor):
 .post-full-byline {
     display: flex;
     justify-content: space-between;
-    margin: 35px 0 0;
     padding-top: 15px;
     border-top: 1px solid color(var(--lightgrey) l(+10%));
 }
@@ -1863,35 +1870,12 @@ Usage (In Ghost editor):
     display: none;
 }
 
-.read-next .post-card-primary-tag {
-    color: #fff;
-    opacity: 0.6;
-}
-
-.read-next .post-card-title {
-    color: #fff;
-    opacity: 0.8;
-    transition: all 0.2s ease-in-out;
-}
-
 .read-next .post-card:hover .post-card-image {
     opacity: 1.0;
 }
 
-.read-next .post-card-excerpt {
-    color: rgba(255, 255, 255, 0.6);
-}
-
 .read-next .static-avatar {
     border-color: #000;
-}
-
-.read-next .post-card-byline-content {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.read-next .post-card-byline-content a {
-    color: rgba(255, 255, 255, 0.8);
 }
 
 .read-next-card {
@@ -2041,7 +2025,6 @@ Usage (In Ghost editor):
     .read-next .post-card {
         flex: 1 1 auto;
         margin: 25px;
-        padding: 25px 0 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
@@ -2091,7 +2074,7 @@ Usage (In Ghost editor):
 .post-full-content figcaption {
     margin: 1.0em 0 0;
     color: color(var(--midgrey) l(-10%));
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font);
     font-size: 75%;
     line-height: 1.5em;
     text-align: center;;
@@ -2176,7 +2159,7 @@ Usage (In Ghost editor):
     display: flex;
     min-height: 148px;
     color: var(--darkgrey);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font);
     text-decoration: none;
     border-radius: 3px;
     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
@@ -2800,6 +2783,16 @@ Usage (In Ghost editor):
     display: none;
 }
 
+.source-code {
+    position: relative;
+}
+.source-code .code-name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .25rem 1rem;
+}
+
 @media (max-width: 650px) {
     .site-footer-content {
         flex-direction: column;
@@ -2813,221 +2806,207 @@ Usage (In Ghost editor):
 
 /* 12. Dark Mode
 /* ---------------------------------------------------------- */
-@media (prefers-color-scheme: dark) {
-    body {
-        color: rgba(255, 255, 255, 0.75);
-        background: var(--darkmode);
-    }
+body {
+    color: rgba(255, 255, 255, 0.75);
+    background: var(--darkmode);
+}
 
-    img {
-        opacity: 0.9;
-    }
+img {
+    opacity: 0.9;
+}
 
-    .site-header-background:before {
-        background: rgba(0,0,0,0.6);
-    }
+.site-header-background:before {
+    background: rgba(0,0,0,0.6);
+}
 
-    .post-feed {
-        background: var(--darkmode);
-    }
+.post-feed {
+    background: var(--darkmode);
+}
 
-    .post-card,
-    .post-card:hover {
-        border-bottom-color: color(var(--darkmode) l(+8%));
-    }
+.post-card,
+.post-card:hover {
+    border-bottom-color: color(var(--darkmode) l(+8%));
+}
 
-    .author-profile-image {
-        background: var(--darkmode);
-    }
+.author-profile-image {
+    background: var(--darkmode);
+}
 
-    .post-card-byline-content a {
-        color: rgba(255, 255, 255, 0.75);
-    }
+.post-card-image {
+    background: var(--darkmode);
+}
 
-    .post-card-byline-content a:hover {
-        color: #fff;
-    }
+.post-card-excerpt {
+    color: color(var(--midgrey) l(+10%));
+}
 
-    .post-card-image {
-        background: var(--darkmode);
-    }
+.author-avatar,
+.static-avatar {
+    border-color: color(var(--darkgrey) l(+2%));
+}
 
-    .post-card-title {
-        color: rgba(255, 255, 255, 0.85);
-    }
+.site-main,
+.post-template .site-main,
+.page-template .site-main {
+    background: var(--darkmode);
+}
 
-    .post-card-excerpt {
-        color: color(var(--midgrey) l(+10%));
-    }
+.post-full-content {
+    background: var(--darkmode);
+}
 
-    .author-avatar,
-    .static-avatar {
-        border-color: color(var(--darkgrey) l(+2%));
-    }
+.post-full-title {
+    color: rgba(255, 255, 255, 0.9);
+}
 
-    .site-main,
-    .post-template .site-main,
-    .page-template .site-main {
-        background: var(--darkmode);
-    }
+.post-full-custom-excerpt {
+    color: color(var(--midgrey) l(+10%));
+}
 
-    .post-full-content {
-        background: var(--darkmode);
-    }
+.post-full-image {
+    background-color: color(var(--darkmode) l(+8%));
+}
 
-    .post-full-title {
-        color: rgba(255, 255, 255, 0.9);
-    }
+.post-full-byline {
+    border-top-color: var(--midgrey);
+}
 
-    .post-full-custom-excerpt {
-        color: color(var(--midgrey) l(+10%));
-    }
+.post-full-byline-meta h4 a {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-    .post-full-image {
-        background-color: color(var(--darkmode) l(+8%));
-    }
+.post-full-byline-meta h4 a:hover {
+    color: #fff;
+}
 
-    .post-full-byline {
-        border-top-color: color(var(--darkmode) l(+15%));
-    }
+.author-list-item .author-card {
+    background: color(var(--darkmode) l(+4%));
+    box-shadow: 0 12px 26px rgba(0,0,0,0.4);
+}
 
-    .post-full-byline-meta h4 a {
-        color: rgba(255, 255, 255, 0.75);
-    }
+.author-list-item .author-card:before {
+    border-top-color: color(var(--darkmode) l(+4%));
+}
 
-    .post-full-byline-meta h4 a:hover {
-        color: #fff;
-    }
+.no-image .author-social-link a {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-    .author-list-item .author-card {
-        background: color(var(--darkmode) l(+4%));
-        box-shadow: 0 12px 26px rgba(0,0,0,0.4);
-    }
+.post-full-content h1,
+.post-full-content h2,
+.post-full-content h3,
+.post-full-content h4,
+.post-full-content h6 {
+    color: rgba(255, 255, 255, 0.9);
+}
 
-    .author-list-item .author-card:before {
-        border-top-color: color(var(--darkmode) l(+4%));
-    }
+.post-full-content a {
+    color: #fff;
+    box-shadow: inset 0 -1px 0 #fff;
+}
 
-    .no-image .author-social-link a {
-        color: rgba(255, 255, 255, 0.75);
-    }
+.post-full-content strong {
+    color: #fff;
+}
 
-    .post-full-content h1,
-    .post-full-content h2,
-    .post-full-content h3,
-    .post-full-content h4,
-    .post-full-content h6 {
-        color: rgba(255, 255, 255, 0.9);
-    }
+.post-full-content em {
+    color: #fff;
+}
 
-    .post-full-content a {
-        color: #fff;
-        box-shadow: inset 0 -1px 0 #fff;
-    }
+.post-full-content code {
+    color: #fff;
+    background: #000;
+}
 
-    .post-full-content strong {
-        color: #fff;
-    }
+hr {
+    border-top-color: color(var(--darkmode) l(+8%));
+}
 
-    .post-full-content em {
-        color: #fff;
-    }
+.post-full-content figcaption {
+    color: rgba(255, 255, 255, 0.6);
+}
 
-    .post-full-content code {
-        color: #fff;
-        background: #000;
-    }
+.post-full-content table td:first-child {
+    background-image: linear-gradient(to right, var(--darkmode) 50%, color(var(--darkmode) a(0%)) 100%);
+}
 
-    hr {
-        border-top-color: color(var(--darkmode) l(+8%));
-    }
+.post-full-content table td:last-child {
+    background-image: linear-gradient(to left, var(--darkmode) 50%, color(var(--darkmode) a(0%)) 100%);
+}
 
-    .post-full-content figcaption {
-        color: rgba(255, 255, 255, 0.6);
-    }
+.post-full-content table th {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: color(var(--darkmode) l(+8%));
+}
 
-    .post-full-content table td:first-child {
-        background-image: linear-gradient(to right, var(--darkmode) 50%, color(var(--darkmode) a(0%)) 100%);
-    }
+.post-full-content table th,
+.post-full-content table td {
+    border: color(var(--darkmode) l(+8%)) 1px solid;
+}
 
-    .post-full-content table td:last-child {
-        background-image: linear-gradient(to left, var(--darkmode) 50%, color(var(--darkmode) a(0%)) 100%);
-    }
+.post-full-content .kg-bookmark-container,
+.post-full-content .kg-bookmark-container:hover {
+    color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 1px rgba(255,255,255,0.9);
+}
 
-    .post-full-content table th {
-        color: rgba(255, 255, 255, 0.85);
-        background-color: color(var(--darkmode) l(+8%));
-    }
+.kg-bookmark-title {
+    color: #fff;
+}
 
-    .post-full-content table th,
-    .post-full-content table td {
-        border: color(var(--darkmode) l(+8%)) 1px solid;
-    }
+.kg-bookmark-description {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-    .post-full-content .kg-bookmark-container,
-    .post-full-content .kg-bookmark-container:hover {
-        color: rgba(255, 255, 255, 0.75);
-        box-shadow: 0 0 1px rgba(255,255,255,0.9);
-    }
+.kg-bookmark-metadata {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-    .kg-bookmark-title {
-        color: #fff;
-    }
+.site-archive-header .no-image {
+    color: rgba(255, 255, 255, 0.9);
+    background: var(--darkmode);
+}
 
-    .kg-bookmark-description {
-        color: rgba(255, 255, 255, 0.75);
-    }
+.site-archive-header .no-image .site-header-content {
+    border-bottom-color: color(var(--darkmode) l(+15%));
+}
 
-    .kg-bookmark-metadata {
-        color: rgba(255, 255, 255, 0.75);
-    }
+.site-header-content .author-profile-image {
+    box-shadow: 0 0 0 6px hsla(0,0%,100%,0.04);
+}
 
-    .site-archive-header .no-image {
-        color: rgba(255, 255, 255, 0.9);
-        background: var(--darkmode);
-    }
+.subscribe-form {
+    border: none;
+    background: linear-gradient(color(var(--darkmode) l(-6%)), color(var(--darkmode) l(-3%)));
+}
 
-    .site-archive-header .no-image .site-header-content {
-        border-bottom-color: color(var(--darkmode) l(+15%));
-    }
+.subscribe-form-title {
+    color: rgba(255, 255, 255, 0.9);
+}
 
-    .site-header-content .author-profile-image {
-        box-shadow: 0 0 0 6px hsla(0,0%,100%,0.04);
-    }
+.subscribe-form p {
+    color: rgba(255, 255, 255, 0.7);
+}
 
-    .subscribe-form {
-        border: none;
-        background: linear-gradient(color(var(--darkmode) l(-6%)), color(var(--darkmode) l(-3%)));
-    }
+.subscribe-email {
+    border-color: color(var(--darkmode) l(+6%));
+    color: rgba(255, 255, 255, 0.9);
+    background: color(var(--darkmode) l(+3%));
+}
 
-    .subscribe-form-title {
-        color: rgba(255, 255, 255, 0.9);
-    }
+.subscribe-email:focus {
+    border-color: color(var(--darkmode) l(+25%));
+}
 
-    .subscribe-form p {
-        color: rgba(255, 255, 255, 0.7);
-    }
+.subscribe-form button {
+    opacity: 0.9;
+}
 
-    .subscribe-email {
-        border-color: color(var(--darkmode) l(+6%));
-        color: rgba(255, 255, 255, 0.9);
-        background: color(var(--darkmode) l(+3%));
-    }
+.subscribe-form .invalid .message-error,
+.subscribe-form .error .message-error {
+    color: color(var(--red) l(+5%) s(-5%));
+}
 
-    .subscribe-email:focus {
-        border-color: color(var(--darkmode) l(+25%));
-    }
-
-    .subscribe-form button {
-        opacity: 0.9;
-    }
-
-    .subscribe-form .invalid .message-error,
-    .subscribe-form .error .message-error {
-        color: color(var(--red) l(+5%) s(-5%));
-    }
-
-    .subscribe-form .success .message-success {
-        color: color(var(--green) l(+5%) s(-5%));
-    }
+.subscribe-form .success .message-success {
+    color: color(var(--green) l(+5%) s(-5%));
 }
