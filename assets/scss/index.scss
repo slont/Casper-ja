@@ -1,0 +1,125 @@
+.site-title {
+    z-index: 10;
+    margin: 0 0 0 -2px;
+    padding: 0;
+    font-size: 5.0rem;
+    line-height: 1em;
+    font-weight: 600;
+}
+
+.site-logo {
+    max-height: 55px;
+}
+
+.site-home-header {
+    z-index: 1000;
+
+    .site-header-background {
+        margin-top: 0;
+    }
+    .site-header-content {
+        padding: 5vw 3vw 6vw;
+    }
+    .site-title {
+        font-size: 5.5rem;
+        text-align: center;
+    }
+    .site-description {
+        font-size: 2.2rem;
+        font-weight: 300;
+    }
+    .site-nav-logo {
+        display: none;
+    }
+}
+
+.site-header-content {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6vw 3vw;
+    min-height: 200px;
+    max-height: 340px;
+
+    .author-profile-image {
+        z-index: 10;
+        flex-shrink: 0;
+        margin: 5px 0 0;
+        width: 110px;
+        height: 110px;
+        box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 6px;
+    }
+    .author-profile-image {
+        box-shadow: 0 0 0 6px hsla(0, 0%, 100%, 0.04);
+    }
+}
+
+.site-description {
+    z-index: 10;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 2.1rem;
+    line-height: 1.4em;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.site-archive-header {
+    .site-header-content {
+        position: relative;
+        align-items: stretch;
+        padding: 12vw 0 20px;
+        min-height: 200px;
+        max-height: 600px;
+    }
+    .no-image {
+        padding-top: 0;
+        padding-bottom: 0;
+        background: #fff;
+        opacity: 1.0;
+        color: rgba(255, 255, 255, 0.9);
+        background: $dark;
+
+        .site-description {
+            color: $midgrey;
+            opacity: 1.0;
+        }
+        .site-header-content {
+            padding: 5vw 0 10px;
+            border-bottom: 1px solid color($lightgrey l(+12%));
+            border-bottom-color: color($dark l(+15%));
+        }
+        .author-header {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 769px) {
+    .site-archive-header .site-header-content {
+        min-height: unset;
+    }
+
+    .site-home-header {
+        .site-title {
+            font-size: 3.2rem;
+        }
+        .site-description {
+            font-size: 1.8rem;
+        }
+        .site-nav {
+            margin-left: -5vw;
+        }
+    }
+
+    .site-header-content {
+        padding-bottom: 9vw;
+
+        .author-profile-image {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
